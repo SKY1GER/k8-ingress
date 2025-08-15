@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app1
+  #these labels are related to deployemnt
+  labels:
+    app: frontend
+    purpose: ingress
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+      purpose: ingress
+  template:
+    metadata:
+      name: expense-project
+      labels:
+        app: frontend
+        purpose: ingress
+        extra-key: extra-component
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable-perl
